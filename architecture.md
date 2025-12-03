@@ -105,14 +105,14 @@ When P_SW=OFF and (if fitted) GND_SW=OPEN, there is no DC conduction path from L
 stateDiagram-v2
   [*] --> Idle_Connected
 
-  state “Idle Connected” as Idle_Connected
+  Idle_Connected: Idle Connected
   note right of Idle_Connected
     Charger & GND switches closed
     Isolators enabled
     Normal USB operation
   end note
 
-  state “Crypto Isolated” as Crypto_Isolated
+  Crypto_Isolated: Crypto Isolated
   note right of Crypto_Isolated
     P_SW off, GND_SW open (if present)
     Charger off, Red fully isolated
@@ -120,7 +120,7 @@ stateDiagram-v2
     UART/CTRL isolators disabled
   end note
 
-  state “Rejoin” as Rejoin
+  Rejoin: Rejoin
   note right of Rejoin
     Re-close GND_SW (if present) & P_SW
     Wait rails settle
